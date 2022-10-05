@@ -20,7 +20,7 @@ uart:
 binary_sensor:
   - platform: gpio
     name: "${room} mmWave Presence"
-    id: mmwave_presence_detection
+    id: "${room} mmWave Presence"
     device_class: motion
     pin:
       number: ${gpio_pin}
@@ -28,7 +28,7 @@ binary_sensor:
     on_state:
       - if:
           condition:
-            binary_sensor.is_off: mmwave_presence_detection
+            binary_sensor.is_off: "${room} mmWave Presence"
           then:
             - sensor.template.publish:
                 id: num_targets
