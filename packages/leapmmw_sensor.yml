@@ -11,13 +11,16 @@ logger:
     sensor: INFO # reduced logging to minimize web_server target overload..
     script: ERROR
 
-## FIXME: To be removed later. Would cause a breaking change
 uart:
   id: uart_bus
   tx_pin: ${uart_tx_pin}
   rx_pin: ${uart_rx_pin}
   baud_rate: 115200
-##
+
+i2c:
+  sda: ${i2c_sda}
+  scl: ${i2c_scl}
+  scan: true
 
 binary_sensor:
   - platform: gpio
@@ -375,4 +378,3 @@ script:
       - delay: 1s
       - switch.turn_on: mmwave_sensor
       - delay: 6s # the sum of mmwave_sensor delays
-      
