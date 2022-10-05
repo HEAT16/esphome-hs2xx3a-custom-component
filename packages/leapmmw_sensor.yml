@@ -93,7 +93,24 @@ sensor:
       App.register_component(s);
       return {};
     sensors:
-      
+
+  - platform: bme280
+    temperature:
+      name: "${room} Temperature"
+      oversampling: 16x
+      filters:
+        offset: -2.5
+    pressure:
+      name: "${room} Pressure"
+    humidity:
+      name: "${room} Humidity"
+    address: 0x76
+    update_interval: 60s
+  - platform: bh1750
+    name: "${room} Illuminance"
+    address: 0x23
+    update_interval: 30s
+
 switch:
   - platform: safe_mode
     name: use_safe_mode
