@@ -17,11 +17,6 @@ uart:
   rx_pin: ${uart_rx_pin}
   baud_rate: 115200
 
-i2c:
-  sda: ${i2c_sda}
-  scl: ${i2c_scl}
-  scan: true
-
 binary_sensor:
   - platform: gpio
     name: mmwave_presence_detection
@@ -42,25 +37,6 @@ binary_sensor:
                 return clearTargets();
     
 sensor:      
-
-  - platform: bme280
-    temperature:
-      name: "${room} Temperature"
-      oversampling: 16x
-      filters:
-        offset: -2.5
-    pressure:
-      name: "${room} Pressure"
-    humidity:
-      name: "${room} Humidity"
-    address: 0x76
-    update_interval: 60s
-    
-  - platform: bh1750
-    name: "${room} Illuminance"
-    address: 0x23
-    update_interval: 30s
-
   - platform: template
     name: target_1_distance_m
     id: target_1_distance_m # do not change
