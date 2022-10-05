@@ -19,7 +19,7 @@ uart:
 
 binary_sensor:
   - platform: gpio
-    name: mmwave_presence_detection
+    name: "${room} mmWave Presence"
     id: mmwave_presence_detection
     device_class: motion
     pin:
@@ -78,7 +78,7 @@ sensor:
     internal: true
 
   - platform: template
-    name: num_targets
+    name: "${room} mmWave Target #"
     id: num_targets # do not change
     accuracy_decimals: 0
 
